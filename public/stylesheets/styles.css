@@ -1,0 +1,104 @@
+html, body {
+  height: 100%;
+  width:  100%;
+  padding: 0;
+  margin:  0;
+  background-color: white;
+  color: #666;
+  font-family: 'Libre Baskerville' serif;
+}
+
+.container {
+  width: 330px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.title {
+  margin-bottom: 0px;
+}
+
+.subtitle {
+  margin-top: 3px;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.life div {
+  float: left;
+  height: 5px;
+  width:  5px;
+  border-radius: 5px;
+  margin-left: 1px;
+  margin-bottom: 1px;
+  cursor: pointer;
+}
+
+.life div:nth-child(52n + 1) {
+  clear: both;
+}
+
+.life .elapsed {
+  background-color: #52B3D9;
+}
+
+.life .remaining {
+  background-color: #eee;
+}
+
+.life div:hover {
+  background-color: #666;
+}
+
+.life div:last-of-type {
+  margin-bottom: 10px;
+}
+
+.tooltip-container {
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+  background-color: white;
+  padding: 1em;
+  border-radius: 4px;
+  opacity: 0.9;
+}
+
+.tooltip {
+  position: relative;
+  text-align: center;
+}
+
+.tooltip:after {
+  position: absolute;
+  display: inline-block;
+  border-top: 6px solid transparent;
+  border-right: 6px solid white;
+  border-bottom: 6px solid transparent;
+  left: -22px;
+  top: 25px;
+  content: '';
+}
+
+.tooltip p {
+  color: #aaa;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+}
+
+.tooltip .date {
+  color: #666;
+  display: block;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.label {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.field { font-family: inherit }
+.field:first-of-type { width: 65px }
+.field:last-of-type  { width: 45px }
