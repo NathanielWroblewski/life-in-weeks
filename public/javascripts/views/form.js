@@ -1,6 +1,6 @@
 namespace('Life.Views')
 
-var VALID_DATE = /^\d{1,2}.\d{1,2}.\d{4}$/,
+var VALID_DATE = /^(\d{1,2}).(\d{1,2}).(\d{4})$/,
     VALID_EXPECTANCY = /^\d{1,2}$/
 
 Life.Views.Form = function(config) {
@@ -23,7 +23,7 @@ Life.Views.Form = function(config) {
   }
 
   this.setBirthdate = function(e) {
-    if (VALID_DATE.test(e.currentTarget.value)) {
+    if (this.validDate(e.currentTarget.value)) {
       this.trigger('change', {
         dob: e.currentTarget.value.substring(0, 10)
       })
@@ -36,6 +36,20 @@ Life.Views.Form = function(config) {
         expectancy: e.currentTarget.value.substring(0, 2)
       })
     }
+  }
+
+  this.validDate = function(date) {
+    if (VALID_DATE.test(date)) {
+      var match = date.match(VALID_DATE),
+          month = parseInt(match[1], 10),
+          day   = parseInt(match[2], 10),
+          year  = parseInt(match[3], 10)
+
+      return (
+        month > 0 && month < 13 && day > 0 && day < 32 && year > 0 && year < 3000
+      )
+    }
+    return false
   }
 
   this.trigger = function(event, details) {

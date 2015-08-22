@@ -27,6 +27,10 @@
 
   form.on('change', function(details) {
     calculator.set(details)
-    if (details.dob) document.querySelector('.date').innerHTML = details.dob
+    if (details.dob) {
+      document.querySelector('.date').innerHTML = details.dob
+    } else {
+      document.querySelector('.expectancy').innerHTML = details.expectancy
+    }
   })
 }()
